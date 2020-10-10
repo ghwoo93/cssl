@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var fn = {
+            login:function(){
+                var userText = document.getElementById('user');
+                if(userText.value==''){
+                    window.alert("아이디 입력해");
+                    userText.focus();
+                }
+            },
+            drop:function(){
+                var flag = window.confirm('정말로 퇴실하시겠습니까?');
+                console.log(flag);
+                if(flag){
+                    //퇴실처리 로직
+                    console.log('퇴실처리 되었어요');
+                }
+            },
+            insertName:function(){
+                var name = prompt("이름을 입력하세요",'');
+                alert('당신의 이름은\r\n'+name+'이군요');
+            },
+            insertAge:function(age){
+                var inputAge = prompt("나이를 입력하세요",age);
+                alert('당신의 10년 후 나이는 '+(parseInt(inputAge)+10));
+            }};
+    </script>
+</head>
+<body>
+    <fieldset>
+
+        <legend>대화 상자들</legend>
+        
+        아이디 <input type="text" id="user" />
+        
+        <input type="button" value="로그인" onclick="fn.login()" />
+        
+        <input type="button" value="퇴실" onclick="fn.drop()" />
+        
+        <input type="button" value="입력" onclick="fn.insertName()" />
+        
+        <input type="button" value="나이입력" onclick="fn.insertAge(20)" />
+        
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Span15.html</title>
+    <style>
+        .monday{
+            font-size: .8em;
+            color: gray;
+
+        }
+        .html5{
+            font-size: 1.8em;
+            color: green;
+            font-weight: ;
+        }
+    </style>
+    <script>
+        function setGuGudan(){
+            var span=document.getElementById('gugudan');
+            var htmlString='<table style=\'border-spacing:2px;backgound-color=green;width:700px;height:400px\'>';
+            for(var i=1;i<=9;i++){
+                htmlString+='<tr style="backgound-color:white">';
+                for(var k=2;k<=9;k++){
+                    htmlString+='<td>'+k+'*'+i+'='+k*i+'</td>';
+                }
+                htmlString+='</tr>';
+            }
+            htmlString='</table>';
+            span.innerHTML=htmlString;
+        };
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend></legend>
+        <input type="button" value="구구단 표시" onclick="setGuGudan" id="gugudan">
+    </fieldset>
+
+    <span id=""></span>
+</body>
+</html>

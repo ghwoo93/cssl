@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function08_2.html</title>
+    <script>
+        var param = 100,args=1;
+        console.log('param:'+window.param);
+        console.log('args:'+args);
+        function callByValue(param,args){
+            var temp = param;
+            param = args;
+            args = temp;
+            console.log('callByValue함수 안:param-%s,args-%s',param,args);
+        }
+        callByValue(param,args);
+        console.log('callByValue함수 밖:param-%s,args-%s',param,args);
+
+        var arr=[100,1];
+        var callByRef= function(arr){
+            var temp=arr[0];
+            arr[0]=arr[1];
+            arr[1]=temp;
+            console.log('callByRef함수 안:param-%s,args-%s',arr[0],arr[1]);
+        }
+        callByRef(arr);
+        console.log('callByRef함수 밖:param-%s,args-%s',arr[0],arr[1]);
+
+        var mVar=100;
+        function conflict(mVar){
+            console.log(this);
+            this.mVar=mVar*2;
+            console.log('함수안 mVar:'+mVar);
+        }
+        window.conflict(mVar);
+        console.log('함수밖 mVar:'+mVar);
+
+        var member = [];
+        function setMember(member){
+            for(var i=0;i<2;i++){
+                member.push(prompt(i+1+'번째 이름 입력?',''));
+                member.push(prompt(i+1+'번째 나이 입력?',''));
+                member.push(prompt(i+1+'번째 주소 입력?',''));
+            }
+        }
+        setMember(member);
+        member.forEach(function(item){
+            console.log(item);
+        });
+
+        var arr2=[9,56,99,247,575,777,999,12];
+        function maxSort(arr){
+            var temp;
+            for(var i=1;i<arr2.length;i++){
+                for(var j=0;j<arr2.length-1;j++){
+                    if(arr2[i]>arr2[j]) {
+                        temp=arr2[j];
+                        arr2[j]=arr2[i];
+                        arr2[i]=temp;
+                    }
+                }
+            }
+        }
+        maxSort(arr2);
+        arr2.forEach(element => {
+            console.log(element);
+        });
+        arr2.forEach(function(item){
+            console.log(item);
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

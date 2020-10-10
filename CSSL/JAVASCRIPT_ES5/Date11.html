@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var today = new Date();
+        console.log('today의 자료형',typeof today)
+        console.log(today);
+        console.log('년도:'+today.getYear()+1900);
+        console.log('년도:'+today.getFullYear());
+
+        var date2 = new Date(2002,5,22,18,10,50);
+        console.log('%s년%s월%s일%s시%s분%s초',
+            date2.getFullYear(),
+            date2.getMonth()+1,
+            date2.getDate(),
+            date2.getHours(),
+            date2.getMinutes(),
+            date2.getSeconds()
+        );
+
+        var date3 = new Date('2020-8-10');
+        console.log('%s년%s월%s일',
+            date3.getFullYear(),
+            date3.getMonth()+1,
+            date3.getDate()
+        );
+
+        date2.setMonth(6);
+        date2.setDate(30);
+        console.log('%s년%s월%s일%s시%s분%s초',
+            date2.getFullYear(),
+            date2.getMonth()+1,
+            date2.getDate(),
+            date2.getHours(),
+            date2.getMinutes(),
+            date2.getSeconds()
+        );
+
+        switch(date2.getDay()){
+            case 0:console.log('일요일');break;
+            case 1:console.log('월요일');break;
+            case 2:console.log('화요일');break;
+            case 3:console.log('수요일');break;
+            case 4:console.log('일요일');break;
+            case 5:console.log('일요일');break;
+            case 6:console.log('일요일');break;
+        }
+
+        var currDate = new Date(2020,9,8);
+        var endDate = new Date(2021,1,18);
+        var cTime=currDate.getTime();
+        var eTime=endDate.getTime();
+        console.log((eTime-cTime));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

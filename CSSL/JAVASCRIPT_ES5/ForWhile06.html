@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForWhile06.html</title>
+    <script>
+        for(var i=0;i<5;i++){
+            var gVar = 'for문 안에서 선언된 변수';
+            document.write('i='+i+'<br/>');
+        }
+        document.write('for문이 끝난 후:i='+i+',gVar:'+gVar+'<br/>');
+    </script>
+</head>
+<body>
+    <script>
+        document.write('바디안에서 for문이 끝난 후:i='+i+',gVar:'+gVar);
+        
+        document.write('<h2>for</h2>');
+        for(var j=0;j<5;j++){
+            for(var k=0;k<5;k++){
+                if(j==k) document.write('1&nbsp;&nbsp;');
+                else document.write('0&nbsp;&nbsp;');
+            }
+            document.write('<br/>');
+        }
+
+        document.write('<h2>while</h2>')
+        var htmlString = '<table>';
+        j=k=0;
+        while(j<5){
+            // tr 
+            htmlString+='<tr>';
+            // td 반복
+            while(k<5){
+                if(j==k)
+                    htmlString+='<td>1&nbsp;</td>';
+                else
+                    htmlString+='<td>0&nbsp;</td>';
+                k++;
+            }
+            // 새로운 td생성
+            htmlString+='</tr>';
+            k=0;
+            j++;
+        }
+        htmlString+='</table>';
+        document.write(htmlString);
+
+        document.write('<h2>for구구단</h2>');
+        document.write('<table>');
+        for(j=2;j<=9;j++){
+            document.write('<tr>');
+            for(k=1;k<=9;k++){
+                document.write('<td>');
+                document.write(j+'*'+k+'='+j*k);
+                document.write('</td>');
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+
+        document.write('<h2>while구구단</h2>');
+        j=1,k=2;
+        htmlString='<table style=\'text-align:center;border-spacing:2px;background-color:green;width:700px;\'>';
+        while(j<=9){
+            htmlString+='<tr style=\'background-color:white\'>';
+            while(k<=9){
+                htmlString+='<td>'+k+'*'+j+'='+k*j+'</td>';
+                k++;
+            }
+            htmlString+='</tr>';
+            k=2;
+            j++;
+        }
+        htmlString+='</table>';
+        document.write(htmlString);
+    </script>
+    <table style="background-color: ;"></table>
+</body>
+</html>

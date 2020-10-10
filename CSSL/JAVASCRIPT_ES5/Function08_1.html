@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function08_1.html</title>
+    <script>
+        //함수 선언문
+        document.write('<h2>noParamNoReturn</h2>');
+        function noParamNoReturn(){
+            document.write('=================Menu=================<br/>');
+            document.write('1.계속 2.나가기<br/>');
+        }
+        document.write('noParamNoReturn의 자료형: '+typeof(noParamNoReturn)+'<br/>');
+        noParamNoReturn();
+
+        //함수 표현식
+        document.write('<h2>yesParamNoReturn</h2>');
+        var yesParamNoReturn = function(start,end){
+            var total=0;
+            for(var i=start;i<=end;i++) total+=i;
+            document.write(start+'부터'+end+'까지 누적합: '+total+'<br/>');
+        };
+        document.write('yesParamNoReturn의 자료형: '+typeof(yesParamNoReturn)+'<br/>');
+        yesParamNoReturn(1,10);
+        // document.write('함수 안에서 선언된 total:'+total+'<br/>');
+        // document.write('함수 안에서 선언된 i:'+i+'<br/>');
+        // document.write('함수 안에서 선언된 start:'+start+'<br/>');
+        
+        document.write('<h2>noParamYesReturn</h2>');
+        var noParamYesReturn=function(){
+            var name= prompt('이름 입력?','');
+            var age= prompt('나이 입력?','20');
+            return '이름:'+name+',나이:'+age;
+            document.write('return문 이후 출력문')
+        };
+        document.write(noParamYesReturn());
+
+        document.write('<h2>yesParamYesReturn</h2>');
+        function yesParamYesReturn(num1,num2){
+            return num1>num2?num1:num2;
+        };
+        document.write('최대값:'+yesParamYesReturn(1,1010));
+
+        document.write('<h2>즉시 실행함수</h2>');
+        var plus=(function(num1,num2){return num1,num2})(10,20);
+        document.write('plus의 자료형:'+typeof plus+':');
+        document.write(plus);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnGetElementsByTag(){
+            var inputs = document.getElementsByTagName('input');
+            console.log(typeof inputs);//object
+            console.log('%O',inputs);//HTML COLLECTION
+            console.log('input태그의 총수:'+inputs.length);
+            console.log(inputs.item(0).value);
+            console.log(inputs[0].value);
+
+            console.log(inputs.namedItem('inter').value);
+            console.log(inputs.namedItem('txt').value);
+            var checkStr = '',txtStr;
+            // inputs.forEach(function(item){console.log(item);})
+            // HTMLCollection.prototype.forEach = Array.prototype.forEach;
+            // console.log('[HTMLCollection에 추가한 forEach함수로 요소 출력]')
+            // inputs.forEach(function(item){console.log(item.value);})
+            for(var i=0;i<inputs.length;i++){
+                if(inputs[i].type=='checkbox'&&inputs[i].checked==true){
+                    
+                    checkStr+=codeToText(inputs[i].value)+' ';
+                }
+                if(inputs[i].type=='text'&&inputs[i].name=='txt'){
+                    txtStr=inputs[i].value;
+                }
+            }
+            console.log('체크된 값:'+checkStr);
+            console.log('입력한 값:',txtStr);
+        }
+
+        var codeToText = function(code){
+            switch(code){
+                case 'POL':return '정치';
+                case 'ECO':return '경제';
+                default: return '연예';
+            }
+        }
+
+        function fnGetElementsByName(){
+            var names=document.getElementsByName('inter');
+            // document.querySelectorAll('a');
+            console.log('자료형:',typeof names);
+            console.log(names);
+            console.log('%O',names)
+            console.log(names.item(0).value);
+            console.log(names[0].value);
+            console.log(names.keys());
+
+            names.forEach(function(item){
+                if(item.checked==true) item.checked=false;
+                else item.checked=true;
+            });
+
+        }
+
+        function fnGetDomain(){
+            var aNode = document.getElementsByTagName('a');
+            HTMLCollection.prototype.myForEach = Array.prototype.forEach;
+            aNode.myForEach(function(item){
+                if(item.href.indexOf('www')!=-1){
+                    console.log(item.href);
+                }
+            });
+        }
+
+        function fnGetElementsClass(){
+            var portals = document.getElementsByClassName('portal');
+            console.log('%O',portals);
+            HTMLCollection.prototype.forEach = Array.prototype.forEach;
+            portals.forEach(function(node){
+                console.log(node.innerHTML);
+            });
+        }
+
+        function fnChangeImage(num){
+            var img = document.getElementById('image');
+            img.src='../Images/'+num+'.jpg';
+        }
+        //src srcTxt1,2
+        //dest destTxt1,2
+        var fnCopy= function(){
+            document.getElementById('dest').value =
+                        document.getElementById('src').value;
+            document.getElementById('destTxt1').value=
+                        document.getElementById('srcTxt1').value;
+            document.getElementById('destTxt2').value=
+                        document.getElementById('srcTxt2').value;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>태그명으로 얻기</h2>
+
+        <input type="checkbox" name="inter" value="POL" />정치
+        <input type="checkbox" name="inter" value="ECO" />경제
+        <input type="checkbox" name="inter" value="ENT" checked />연예
+        <input type="text" name="txt" />
+        <input type="button" value="태그명으로 DOM객체 얻기" onclick="fnGetElementsByTag()" />
+
+        <h2>이름으로 얻기</h2>
+
+        <input type="button" value="NAME속성에 지정한 값으로 DOM객체 얻기" onclick="fnGetElementsByName()" />
+
+        <h2>태그명으로 객체 얻기2</h2>
+        <ul>
+            <li><a href="http://www.naver.com">네이버</a></li>
+            <li><a href="http://www.daum.net">다음</a></li>
+            <li><a href="http://www.nate.com">네이트</a></li>
+        </ul>
+
+        <button onclick="fnGetDomain()">도메인 얻어오기</button>
+
+        <h2>클래스명으로 객체 얻기</h2>
+
+        <ul>
+            <li><a href="#" class="portal">네이버</a></li>
+            <li><a href="#" class="portal">다음</a></li>
+            <li><a href="#" class="portal">네이트</a></li>
+        </ul>
+
+        <button onclick="fnGetElementsClass()">클래스명으로 DOM객체 얻어오기</button>
+
+        <h3>동적으로 이미지 교체(ID로 DOM객체 얻기)</h3>
+
+        <fieldset>
+            <legend>이미지 교체</legend>
+            <a href="javascript:fnChangeImage(1)">1번 이미지</a>
+            <a href="javascript:fnChangeImage(2)">2번 이미지</a>
+            <a href="javascript:fnChangeImage(3)">3번 이미지</a>
+            <a href="javascript:fnChangeImage(4)">4번 이미지</a>
+            <hr />
+            <img id="image" src="#" alt="이미지교체" style="width:200px;height:200px" />
+        </fieldset>
+
+        ​
+
+        <fieldset>
+            <legend>전화번호 복사</legend>
+            <select id="src">
+                <option value="010">010</option>
+                <option value="011">011</option>
+                <option value="017">017</option>
+                <option value="019">019</option>
+            </select>
+            -
+            <input type="text" size="4" maxlength="4" id="srcTxt1" />
+            -
+            <input type="text" size="4" maxlength="4" id="srcTxt2" />
+            <br />
+            <input type="button" value="복사" onclick="fnCopy()" />
+            <br />
+            <select id="dest">
+                <option value="010">010</option>
+                <option value="011">011</option>
+                <option value="017">017</option>
+                <option value="019">019</option>
+            </select>
+            -
+            <input type="text" size="4" maxlength="4" id="destTxt1" />
+            -
+            <input type="text" size="4" maxlength="4" id="destTxt2" />
+        </fieldset>
+</body>
+
+</html>
