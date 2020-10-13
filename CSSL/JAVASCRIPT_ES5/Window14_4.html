@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window14_4.html</title>
-    <script>
-        /*
-        escape() :
-        */
-       var escapeString = '안녕 가! HELLO 1234567890';
-       console.log(escape(escapeString));
-       //%uC548%uB155%20%uAC00%21%20HELLO%201234567890
-       console.log(unescape('%uC548%uB155%20%uAC00%21%20HELLO%201234567890'));
-    
-    </script>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Window14_4.html</title>
+        <script>
+            /*
+            escape() :
+            */
+            var escapeString = '안녕 가! HELLO 1234567890';
+            console.log(escape(escapeString));
+            //%uC548%uB155%20%uAC00%21%20HELLO%201234567890
+            console.log(
+                unescape(
+                    '%uC548%uB155%20%uAC00%21%20HELLO%201234567890'
+                )
+            );                          
+            var msg = '메세지 상자'
+            // document.write("<script>alert('메시지상자');<\/script>");
+            // eval('alert(\'메시지상자\')');
+            var str = '{"name":"이길동","age":20}';
+            var json = JSON.parse(str);
+            console.log(json.name);
+            // console.log('%O',str);
+            //var obj = eval("function(){return this.obj;}");
+            var obj = ('{"name":"이길동","age":20}');
+            var obj2 = eval("({name:'이길동',age:20})");
+            console.log('%O',obj2);
+            console.log(obj2.name);
+            // function looseJsonParse(obj){
+            //    return Function('"use strict";return (' + obj + ')')();
+            // }
+            // console.log(looseJsonParse(
+            // "{a:(4-1), b:function(){}, c:new Date()}"
+            // ))
+            console.log('[isNaN()함수]');
+            isNaN('100A')?console.log('숫자가 아니다'):console.log('숫자다');
+            isNaN('가100')?console.log('숫자가 아니다'):console.log('숫자다');
+            isNaN('100')?console.log('숫자가 아니다'):console.log('숫자다');
+            console.log('[parseInt()함수]');
+            console.log(parseInt('1004'));
+            console.log(parseInt('10A9'));
+            console.log(parseInt('가10A9'));
+            var query = 'name=가길동&key=you&age=30';
+            console.log('encodeURI:',encodeURI(query));
+            console.log('escape:',escape(query));
+            console.log('encodeURIComponent:',encodeURIComponent(query));
+        </script>
+    </head>
+    <body></body>
 </html>
