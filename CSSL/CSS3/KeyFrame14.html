@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #rect{
+            width: 100px;
+            height: 100px;
+            background-color: darkslateblue;
+
+            animation-duration: 3s;
+
+            animation-name: myani1;
+
+        }
+        @keyframes myani1{
+            /*
+            from{
+                width: 100px;
+                height: 100px;
+            }
+            */
+            to{
+                width: 400px;
+                height: 400px;
+
+            }
+        }
+        #circ1{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: dodgerblue;
+            position: absolute;
+            left:0;
+            top:100px;
+            animation-duration: 3s;
+
+            animation-name: myani2;
+        }
+        @keyframes myani2{
+            from{}
+            to{
+                width: 400px;
+                height: 200px;
+                line-height: 200px;
+                transform: rotate(360deg);
+                border-radius: 100px;
+            }
+        }
+        #circ2{
+            width: 100px;
+            height: 100px;
+            background-color: mediumpurple;
+            position: absolute;
+            left:0;
+            top:200px;   
+            animation-duration: 3s;
+
+            animation-name: myani3;        
+
+            animation-iteration-count: infinite;
+        }
+        @keyframes myani3{
+            to{
+                left: 400px;
+                top: 600px;
+            }
+        }
+        #circ2:hover{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="rect"></div>
+        <div id="circ1">CIRCLE</div>
+        <div id="circ2"></div>
+    </div>
+</body>
+</html>
