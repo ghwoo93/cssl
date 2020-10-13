@@ -40,9 +40,16 @@
             console.log(brace.minus());
             console.log(brace.plus());
             //생성자 함수 사용
-            function MyFunction(time,){
-
+            function MyFunction(time,loc){
+                this.time=time;
+                this.loc=loc;
             }
+            var myFunc = new MyFunction(new Date(),'수원');
+            MyFunction.prototype.print=function(){
+                console.log(this.time,this.loc);
+            };
+            myFunc.print();
+
         </script>
     </head>
     <body>
