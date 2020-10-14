@@ -14,13 +14,14 @@
         리스너는 태그안에 속성으로 기술할 수 있다
         [이벤트 처리방법]
         1] 해당 태그에 직접 on계열의 리스너 부착
-        예1] <a href="#" onclick="이벤트를 처리할 자바스크립트 코드">텍스트</a>
-        예2] window.onload=function(e){};
+        예] <a href="#" onclick="이벤트를 처리할 자바스크립트 코드">텍스트</a>
         2] 해당 태그 객체를 얻어 와서 해당 태그 객체의 속성에 익명함수를 할당해서 처리
+
         예]<a href="#" >텍스트</a>
         document객체의 getElemXXXByXXX()메소드로 얻어 와서
         얻어온 객체.on이벤트명 = function(){}
         혹은 얻어온 객체.addEventListener("on을 뺀 이벤트명",function(){});
+
 
         주요 이벤트]
 
@@ -72,8 +73,8 @@
 
         keydown:모든 키를 누를때 발생하는 이벤트
         keyup:키보드를 떨때 발생하는 이벤트
-        keypress:문자키(타이핑 되는 키)를 누를때 발생하는 이벤트
-        (방향키나 DELETE키 누를때는 발생안함-FIREFOX에서만 적용안됨)
+        keypress:문자키를 누를때 발생하는 이벤트(방향키나 DELETE키 누를때는
+        발생안함-FIREFOX에서만 적용안됨)
 
         
         마우스 이베트:
