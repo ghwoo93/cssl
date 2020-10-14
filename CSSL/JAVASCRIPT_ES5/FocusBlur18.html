@@ -8,62 +8,42 @@
         />
         <title>FocusBlur18.html</title>
         <script>
-            var txt,pwd;
-            // window.addEventListener('load',function(){
-            //     txt = document.getElementById('txt');
-            //     pwd = document.getElementById('pwd');
-            // });
-
-            window.onload=function(){
+            var txt;
+            var pwd;
+            window.onload = function(){
                 txt = document.getElementById('txt');
                 pwd = document.getElementById('pwd');
-            };
-
-            function fnUser(flag,obj){
-                if(flag==1){
-                    if(obj.value=='아이디') obj.value='';
-                }else{
-                    if(obj.value=='') obj.value='아이디';
-                }
             }
 
+            function fnUser(flag,obj){
+                if(flag==1){//focus
+                    if(obj.value='아이디'){//오브젝트가 빌때
+                        obj.value='';
+                    }
+                }else{//blur
+                    if(obj.value.length==0){
+                        obj.value='아이디';
+                    }
+                }
+            }
             function fnPass(flag){
-                if(flag==1){
-                    if(txt.value=='비밀번호'){
+                if(flag==1){//txt
+                    if(txt.value=='비밀번호'){//입력안함
                         txt.style.display='none';
                         pwd.style.display='inline';
                         pwd.focus();
                     }
-                }else{
+                }else{//pwd
                     if(pwd.value.length==0){
                         pwd.style.display='none';
                         txt.style.display='inline';
-                        // txt.value='비밀번호';
+                        txt.value='비밀번호';
                     }
                 }
             }
         </script>
     </head>
     <body>
-        <fieldset>
-            <legend>focus 및 blur이벤트</legend>
-            <input
-                type="text"
-                onfocus="console.log('focus이벤트 발생-포커스를 얻을때');"
-                onblur="console.log('blur이벤트 발생-포커스를 잃을때');"
-            />
-        </fieldset>
-        ​ ​
-        <fieldset>
-            <legend>
-                focus 및 blur이벤트 예제(HTML5의 속성
-                이용-IE에서만 적용됨)
-            </legend>
-            아이디
-            <input type="text" placeholder="아이디" />
-            비밀번호
-            <input type="password" placeholder="비밀번호" />
-        </fieldset>
         <fieldset>
             <legend>
                 focus 및 blur이벤트 예제(자바스크립트로
@@ -92,5 +72,25 @@
                 style="display: none"
             />
         </fieldset>
+        <fieldset>
+            <legend>focus 및 blur이벤트</legend>
+            <input
+                type="text"
+                onfocus="console.log('focus이벤트 발생-포커스를 얻을때');"
+                onblur="console.log('blur이벤트 발생-포커스를 잃을때');"
+            />
+        </fieldset>
+        ​ ​
+        <fieldset>
+            <legend>
+                focus 및 blur이벤트 예제(HTML5의 속성
+                이용-IE에서만 적용됨)
+            </legend>
+            아이디
+            <input type="text" placeholder="아이디" />
+            비밀번호
+            <input type="password" placeholder="비밀번호" />
+        </fieldset>
+        
     </body>
 </html>
