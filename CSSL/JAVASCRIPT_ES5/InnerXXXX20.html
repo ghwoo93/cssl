@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script>
+            function fnWrite(flag){
+                var span = document.getElementById('span');
+                if(flag=='H') span.innerHTML="<strong>"+span.innerHTML+"</strong>";
+                else span.innerText="<strong>"+span.innerText+"</strong>";
+            }
+        </script>
+    </head>
+    <body>
+        
+        <h2 id="h2">inner계열 속성 얻기</h2>
+        <input
+            type="button"
+            value="시작태그와 종료태그사이에 있는값 얻기"
+            onclick="alert(document.getElementById('h2').innerHTML);"
+        />
+        <input
+            type="button"
+            value="innerHTML"
+            onclick="fnWrite('H')"
+        />
+        <input
+            type="button"
+            value="innerText"
+            onclick="fnWrite('T')"
+        />
+        <span id="span">텍스트</span>
+    </body>
+</html>

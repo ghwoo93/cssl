@@ -21,6 +21,7 @@
       console.log(escape(escapeString));
       //%uC548%uB155%20%uAC00%21%20HELLO%201234567890
       //unescape():UTF-8형식으로 인코딩된 값을 디코딩
+      console.log(unescape(escape(escapeString)));
       console.log(unescape('%uC548%uB155%20%uAC00%21%20HELLO%201234567890'));      
       //document.write("<script>alert(\"메시지 대화상자\")<\/script>");
       document.write("alert(\"메시지 대화상자\")");

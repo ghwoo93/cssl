@@ -44,12 +44,13 @@
             //     'popup1',
             //     'width=400,height=400,left='+xpos+',top='+ypos);
             // console.log('%O',winObj);
+            var winObj;
             function popupClose() {
                 // console.log('%O',winObj);
                 winObj.close();
             }
             function zipOpen() {
-                window.open(
+                winObj = window.open(
                     'Window14_2_1.html',
                     'zipcode',
                     'width=400,height=400,left=' +
